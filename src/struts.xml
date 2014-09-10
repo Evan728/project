@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+	"http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+	<package name="registration" namespace="/" extends="struts-default">
+        
+		<action name="user" class="com.efinance.action.UserAction">
+			<result name="success">/ok.jsp</result>
+			<result name="fail">/fail.jsp</result>		
+			<result name="login_ok">/index.html</result>	
+			<result name="complete">/login_ok.jsp</result>			
+		</action>	
+		<action name="manageAction" class="com.efinance.action.ManageAction">
+			
+			<result name="findAllUser">/aboutmyloan.jsp</result>
+		</action>
+		<action name="netbankAction" class="com.efinance.action.NetbankAction">
+			
+			<result name="login_success">/netbank.jsp</result>
+			<result name="transfer_success">/accoutsetting.jsp</result>
+			<result name="available_transfer">/accoutsetting.jsp</result>
+		</action>
+	</package>
+	<package name="Login" extends="struts-default">
+
+        <action name="upload" class="com.efinance.action.FileUploadAction" method="upload">
+        	<param name="savePath">
+              	/upload
+            </param>
+            <result name="success">/showImg.jsp</result>
+            <result name="input">regist-login.jsp</result>
+        </action>      
+         <action name="cut" class="com.efinance.action.FileUploadAction" method="cut">
+        	<param name="savePath">
+              	/upload
+            </param>
+            <result name="cut">/input.jsp</result>
+        </action>
+         
+    </package>
+</struts>
+	
